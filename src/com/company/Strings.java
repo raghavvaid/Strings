@@ -26,7 +26,7 @@ public class Strings {
     public static String convertDate(String datestr){
         int x = datestr.indexOf('/');
         int y = datestr.indexOf('/', x + 1);
-        String date = datestr.substring(x + 1, y) + "/" + datestr.substring(0,x) + "/" + datestr.substring(y + 1);
+        String date = datestr.substring(x + 1, y) + "-" + datestr.substring(0,x) + "-" + datestr.substring(y + 1);
         return date;
     }
 
@@ -49,7 +49,7 @@ public class Strings {
             month = datestr.substring(0,x);
         }
 
-        String date = day + "/" + month + "/" + datestr.substring(y + 1);
+        String date = day + "-" + month + "-" + datestr.substring(y + 1);
         return date;
 
     }
