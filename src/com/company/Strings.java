@@ -26,7 +26,7 @@ public class Strings {
     public static String convertDate(String datestr){
         int x = datestr.indexOf('/');
         int y = datestr.indexOf('/', x + 1);
-        String date = datestr.substring(x + 1, y) + "/" + datestr.substring(0,x) + "/" + datestr.substring(y + 1);
+        String date = datestr.substring(x + 1, y) + "-" + datestr.substring(0,x) + "-" + datestr.substring(y + 1);
         return date;
     }
 
@@ -49,10 +49,38 @@ public class Strings {
             month = datestr.substring(0,x);
         }
 
-        String date = day + "/" + month + "/" + datestr.substring(y + 1);
+        String date = day + "-" + month + "-" + datestr.substring(y + 1);
         return date;
 
     }
+
+    public static boolean startsWith(String s, String prefix){
+        int x = prefix.length();
+        int y = s.length();
+        if (x>y) return false;
+        return s.substring(0, x).equals(prefix);
+
+    }
+
+    public static boolean endsWith(String s, String suffix){
+        int x = suffix.length();
+        int y = s.length();
+        if(x>y) return false;
+        return s.substring(y-x).equals(suffix);
+    }
+
+    public static String removeTag(String s, String tag){
+        String beg = "<"+tag+">";
+        String end = "</"+tag+">";
+        int x = beg.length();
+        int y = s.indexOf(beg);
+        int ending = s.indexOf(end, y+1);
+
+        if(ending == -1) return s;
+        if(y == -1) return s;
+        return s.substring(y+x,ending);
+    }
+
 
 
     public static void main(String[] args) {
@@ -82,31 +110,30 @@ public class Strings {
         System.out.println("4/20/2014 becomes " + convertDate2("4/20/2014"));
         System.out.println("04/2/2014 becomes " + convertDate2("04/2/2014"));
         System.out.println("4/2/2014 becomes " + convertDate2("4/2/2014"));
-        System.out.println();
 
+        System.out.println("\nstartsWith:");
+        System.out.println(startsWith("architecture", "arch"));
+        System.out.println(startsWith("architecture", "a"));
+        System.out.println(startsWith("arch", "architecture"));
+        System.out.println(startsWith("architecture", "rch"));
+        System.out.println(startsWith("architecture", "architecture"));
 
-//        System.out.println("\nstartsWith");
-//        System.out.println(startsWith("architecture", "arch"));
-//        System.out.println(startsWith("architecture", "a"));
-//        System.out.println(startsWith("arch", "architecture"));
-//        System.out.println(startsWith("architecture", "rch"));
-//        System.out.println(startsWith("architecture", "architecture"));
-//        System.out.println("\nendsWith");
-//        System.out.println(endsWith("astronomy", "nomy"));
-//        System.out.println(endsWith("astronomy", "y"));
-//        System.out.println(endsWith("astronomy", "nom"));
-//        System.out.println(endsWith("nomy", "astronomy"));
-//        System.out.println(endsWith("astronomy", "astronomy"));
-//        System.out.println("\nremoveTag");
-//        System.out.println(removeTag("<b>Hello World</b>", "b"));
-//        System.out.println(removeTag("<b>Hello World</b>", "head"));
-//        System.out.println(removeTag("Hello World</b>", "b"));
-//        System.out.println(removeTag("<b>Hello World", "b"));
-//        System.out.println(removeTag("</img>Hello World<img>", "img"));
-//        System.out.println(removeTag("Happy Birthday <b>Hello World</b>", "b"));
-//        System.out.println(removeTag("<title>Hello World</title> Happy Birthday",
-//                "title"));
-//        System.out.println(removeTag("Happy <b>Hello World</b> Birthday", "b"));
+        System.out.println("\nendsWith:");
+        System.out.println(endsWith("astronomy", "nomy"));
+        System.out.println(endsWith("astronomy", "y"));
+        System.out.println(endsWith("astronomy", "nom"));
+        System.out.println(endsWith("nomy", "astronomy"));
+        System.out.println(endsWith("astronomy", "astronomy"));
+
+        System.out.println("\nremoveTag:");
+        System.out.println(removeTag("<b>Hello World</b>", "b"));
+        System.out.println(removeTag("<b>Hello World</b>", "head"));
+        System.out.println(removeTag("Hello World</b>", "b"));
+        System.out.println(removeTag("<b>Hello World", "b"));
+        System.out.println(removeTag("</img>Hello World<img>", "img"));
+        System.out.println(removeTag("Happy Birthday <b>Hello World</b>", "b"));
+        System.out.println(removeTag("<title>Hello World</title> Happy Birthday", "title"));
+        System.out.println(removeTag("Happy <b>Hello World</b> Birthday", "b"));
 
     }
 }
