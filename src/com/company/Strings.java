@@ -48,10 +48,8 @@ public class Strings {
         else {
             month = datestr.substring(0,x);
         }
-
         String date = day + "-" + month + "-" + datestr.substring(y + 1);
         return date;
-
     }
 
     public static boolean startsWith(String s, String prefix){
@@ -59,7 +57,6 @@ public class Strings {
         int y = s.length();
         if (x>y) return false;
         return s.substring(0, x).equals(prefix);
-
     }
 
     public static boolean endsWith(String s, String suffix){
@@ -134,6 +131,5 @@ public class Strings {
         System.out.println(removeTag("Happy Birthday <b>Hello World</b>", "b"));
         System.out.println(removeTag("<title>Hello World</title> Happy Birthday", "title"));
         System.out.println(removeTag("Happy <b>Hello World</b> Birthday", "b"));
-
     }
 }
