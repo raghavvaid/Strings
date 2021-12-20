@@ -39,7 +39,6 @@ public class ErrorLog {
         ErrorLog er5 = new ErrorLog("SERVER22:write error on disk");
         ErrorLog er6 = new ErrorLog("Webserver:error on /dev/disk");
         ErrorLog er7 = new ErrorLog("Webserver:disk");
-        System.out.println();
 
         System.out.println("containsKey:");
         System.out.println("message 1 " + er1.containsKey("disk")); //false
