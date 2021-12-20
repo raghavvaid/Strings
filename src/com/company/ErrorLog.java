@@ -14,16 +14,18 @@ public class ErrorLog {
 
 
     public boolean containsKey(String keyword) {
+        int x = description.length();
+        int y = keyword.length();
         int z = description.indexOf(keyword);
-        if (z == -1){
-            return false;
-        }
-        else if (z ==0){
-            String x = description.substring(keyword.length(), keyword.length()+1);
-            return (x.equals(" "));
+        if (z == -1) return false;
 
+        if (z != 0) {
+            if (description.charAt(z-1) != ' ') return false;
         }
-        else return true;
+        if (z + y != x) {
+            if(description.charAt(z+y)!= ' ') return false;
+        }
+        return true;
     }
 
     public String getMachineId() { return machineId;}
