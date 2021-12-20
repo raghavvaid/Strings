@@ -49,8 +49,6 @@ public class ErrorLog {
         System.out.println("message 6 " + er6.containsKey("disk")); //false
         System.out.println("message 6 " + er6.containsKey("error"));//true
         System.out.println("message 7 " + er7.containsKey("disk")); //true
-
-
     }
 
 }
