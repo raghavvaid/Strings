@@ -4,16 +4,13 @@ public class Sentence {
 
     private String currSent;
 
-    /** Constructs a new Sentence object. */
     public Sentence(String p) {
         currSent = p;
     }
 
-    /** Returns a string containing the current sentence. */
     public String toString() {
         return currSent;
     }
-
 
     public int findNthTime(String str, int n) {
         int x = -1;
@@ -23,7 +20,6 @@ public class Sentence {
         }
         return x;
     }
-
 
 
     public void replaceNthTime(String str, int n, String repl){
@@ -85,5 +81,4 @@ public class Sentence {
         System.out.println(sentence6.findLastTime("cat"));
         System.out.println(sentence6.findLastTime("bat"));
     }
-
 }
